@@ -49,6 +49,7 @@ class VideoEditorController extends ChangeNotifier {
     this.minDuration = Duration.zero,
     this.coverThumbnailsQuality = 10,
     this.trimThumbnailsQuality = 10,
+    this.trimThumbnailsMaxWidth = 0,
     this.coverStyle = const CoverSelectionStyle(),
     this.cropStyle = const CropGridStyle(),
     TrimSliderStyle? trimStyle,
@@ -366,6 +367,12 @@ class VideoEditorController extends ChangeNotifier {
   ///
   /// Defaults to `10`.
   final int trimThumbnailsQuality;
+
+  /// The [trimThumbnailsMaxWidth] param specifies the max width of the generated
+  /// trim slider thumbnails. used together with aspect ratio to scale the result
+  ///
+  /// Defaults to `0` = same as source.
+  final int trimThumbnailsMaxWidth;
 
   /// Replace selected cover by [selectedCover]
   void updateSelectedCover(CoverData selectedCover) async {
